@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg">
+                    <div class="card-header text-center py-4">
+                        <h1 class="h3 mb-0">
+                            <i class="fas fa-envelope me-2"></i>
+                            Entre em Contato
+                        </h1>
+                        <p class="text-muted mb-0">Preencha o formulário abaixo e entraremos em contato</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- Flash Messages -->
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{ 'danger' if category == 'danger' else 'success' }} alert-dismissible fade show" role="alert">
+                                        <i class="fas fa-{{ 'exclamation-triangle' if category == 'danger' else 'check-circle' }} me-2"></i>
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+
+                        <form method="POST" id="contactForm" novalidate>
+                            <!-- Nome -->
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">
+                                    <i class="fas fa-user me-1"></i>
+                                    Nome Completo *
+                                </label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="nome" 
+                                       name="nome" 
+                                       value="{{ nome or '' }}"
+                                       placeholder="Digite seu nome completo"
+                                       required>
+                                <div class="invalid-feedback">
+                                    Nome deve conter pelo menos 2 caracteres e apenas letras.
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">
+                                    <i class="fas fa-envelope me-1"></i>
+                                    Email *
+                                </label>
+                                <input type="email" 
+                                       class="form-control" 
+                                       id="email" 
+                                       name="email" 
+                                       value="{{ email or '' }}"
+                                       placeholder="seu@email.com"
+                                       required>
+                                <div class="invalid-feedback">
+                                    Digite um email válido.
+                                </div>
+                            </div>
+
+                            <!-- Telefone -->
+                            <div class="mb-3">
+                                <label for="telefone" class="form-label">
+                                    <i class="fas fa-phone me-1"></i>
+                                    Telefone *
+                                </label>
+                                <input type="tel" 
+                                       class="form-control" 
+                                       id="telefone" 
+                                       name="telefone" 
+                                       value="{{ telefone or '' }}"
+                                       placeholder="(11) 99999-9999"
+                                       required>
+                                <div class="invalid-feedback">
+                                    Digite um telefone válido no formato brasileiro.
+                                </div>
+                                <div class="form-text">
+                                    Formato: (11) 99999-9999 ou 11 99999-9999
+                                </div>
+                            </div>
+
+                            <!-- Interesse -->
+                            <div class="mb-4">
+                                <label for="interesse" class="form-label">
+                                    <i class="fas fa-star me-1"></i>
+                                    Área de Interesse *
+                                </label>
+                                <select class="form-select" id="interesse" name="interesse" required>
+                                    <option value="">Selecione uma opção</option>
+                                    <option value="Vendas" {{ 'selected' if interesse == 'Vendas' else '' }}>Vendas</option>
+                                    <option value="Suporte Técnico" {{ 'selected' if interesse == 'Suporte Técnico' else '' }}>Suporte Técnico</option>
+                                    <option value="Parcerias" {{ 'selected' if interesse == 'Parcerias' else '' }}>Parcerias</option>
+                                    <option value="Recursos Humanos" {{ 'selected' if interesse == 'Recursos Humanos' else '' }}>Recursos Humanos</option>
+                                    <option value="Marketing" {{ 'selected' if interesse == 'Marketing' else '' }}>Marketing</option>
+                                    <option value="Financeiro" {{ 'selected' if interesse == 'Financeiro' else '' }}>Financeiro</option>
+                                    <option value="Outros" {{ 'selected' if interesse == 'Outros' else '' }}>Outros</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor, selecione uma área de interesse.
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    Enviar Contato
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center text-muted">
+                        <small>
+                            <i class="fas fa-shield-alt me-1"></i>
+                            Seus dados estão seguros conosco
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/validation.js') }}"></script>
+</body>
+</html>
