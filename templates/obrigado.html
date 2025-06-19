@@ -2,11 +2,40 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Obrigado!</title>
+  <title>Contato Recebido</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%), url("{{ url_for('static', filename='logo-fundo.jpeg') }}") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 60px;
+      backdrop-filter: brightness(0.5);
+    }
+    .mensagem {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 12px;
+      display: inline-block;
+      max-width: 600px;
+    }
+    a {
+      color: #0f0;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body style="background:#111;color:white; font-family:Arial;padding:30px;">
-  <h2>✅ Obrigado pelo contato!</h2>
-  <p>Recebemos suas informações e em breve entraremos em contato.</p>
-  <a href="/" style="color:#0f0">Voltar para o início</a>
+<body>
+  <div class="mensagem">
+    <h2 style="color:#1E90FF;">✅ Dados recebidos com sucesso!</h2>
+    <p style="font-size:18px;">Muito obrigado por entrar em contato com a <strong>THE.DRAGON.VIBES.1</strong>.</p>
+    <p style="font-size:16px;">Nossa equipe já recebeu suas informações e entrará em contato em breve.</p>
+    <br>
+    <a href="/">Voltar para a página inicial</a>
+  </div>
 </body>
 </html>
