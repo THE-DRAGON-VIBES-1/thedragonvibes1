@@ -18,7 +18,7 @@ def validar_email(email):
 
 def validar_telefone(telefone):
     """Validate phone number format - accepts international formats"""
-    return re.match(r'^\+?\d[\d\s\-()]{7,}$', telefone)
+    return re.match(r'^\+?[\d\s\-\(\)]{7,}$', telefone)
 
 def validar_nome(nome):
     """Validate name - should not be empty and contain only letters and spaces"""

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailRegex = /^[\w\.-]+@[\w\.-]+\.\w+$/;
     
     // International phone validation regex
-    const phoneRegex = /^\+?\d[\d\s\-()]{7,}$/;
+    const phoneRegex = /^\+?[\d\s\-\(\)]{7,}$/;
     
     // Name validation regex (only letters and spaces)
     const nameRegex = /^[A-Za-zÀ-ÿ\s]+$/;
