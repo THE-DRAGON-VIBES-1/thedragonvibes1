@@ -17,8 +17,8 @@ def validar_email(email):
     return re.match(r'^[\w\.-]+@[\w\.-]+\.\w+$', email)
 
 def validar_telefone(telefone):
-    """Validate Brazilian phone number format"""
-    return re.match(r'^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$', telefone)
+    """Validate phone number format - accepts international formats"""
+    return re.match(r'^\+?\d[\d\s\-()]{7,}$', telefone)
 
 def validar_nome(nome):
     """Validate name - should not be empty and contain only letters and spaces"""
@@ -52,7 +52,7 @@ def index():
             errors.append("Email deve ter um formato válido (ex: usuario@dominio.com).")
         
         if not validar_telefone(telefone):
-            errors.append("Telefone deve estar no formato brasileiro (ex: (11) 99999-9999).")
+            errors.append("Telefone deve ter um formato válido (ex: +244 932 998 220 ou (11) 99999-9999).")
         
         if not interesse_list:
             errors.append("Por favor, selecione pelo menos um serviço de interesse.")

@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Email validation regex
     const emailRegex = /^[\w\.-]+@[\w\.-]+\.\w+$/;
     
-    // Brazilian phone validation regex
-    const phoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$/;
+    // International phone validation regex
+    const phoneRegex = /^\+?\d[\d\s\-()]{7,}$/;
     
     // Name validation regex (only letters and spaces)
     const nameRegex = /^[A-Za-zÀ-ÿ\s]+$/;
