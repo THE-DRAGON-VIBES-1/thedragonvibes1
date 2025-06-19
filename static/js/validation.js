@@ -101,6 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const telefoneInput = document.getElementById('telefone');
     const interesseSelect = document.getElementById('interesse');
     
+    // Check if elements exist before adding listeners
+    if (!nomeInput || !emailInput || !telefoneInput || !interesseSelect) {
+        return; // Exit if form elements not found
+    }
+    
     // Name validation
     nomeInput.addEventListener('blur', function() {
         validateName(this);

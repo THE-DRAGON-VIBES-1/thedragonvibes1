@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE.DRAGON.VIBES.1 - Lista de Contatos</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+</head>
+<body style="font-family: Arial; background-color: #111; color: #fff; padding: 30px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <!-- Header Section -->
+                <div class="text-center mb-4">
+                    <div class="logo-placeholder mb-3" style="width: 220px; height: 80px; background-color: #f22; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; margin: 0 auto; border-radius: 10px;">
+                        THE DRAGON VIBES 1
+                    </div>
+                    <h2 style="color: #f22;">Lista de Contatos</h2>
+                    <hr style="border-color: #444;">
+                </div>
+
+                <div class="card shadow-lg" style="background-color: #222; border: none;">
+                    <div class="card-header" style="background-color: #333; border-bottom: 1px solid #444;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 style="color: #fff; margin: 0;">Contatos Recebidos</h3>
+                            <a href="/" class="btn" style="background-color: #f22; color: #fff; border: none; padding: 8px 16px; border-radius: 5px;">
+                                <i class="fas fa-arrow-left me-2"></i>Voltar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 20px;">
+                        {% if contatos and contatos|length > 1 %}
+                            <div class="table-responsive">
+                                <table class="table table-dark table-striped">
+                                    <thead>
+                                        <tr style="background-color: #333;">
+                                            {% for header in contatos[0] %}
+                                                <th style="color: #fff; border-color: #555;">{{ header }}</th>
+                                            {% endfor %}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for contato in contatos[1:] %}
+                                            <tr>
+                                                {% for campo in contato %}
+                                                    <td style="color: #ccc; border-color: #555;">{{ campo }}</td>
+                                                {% endfor %}
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <p style="color: #ccc;">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Total de contatos: <strong>{{ contatos|length - 1 }}</strong>
+                                </p>
+                            </div>
+                        {% else %}
+                            <div class="text-center py-5">
+                                <i class="fas fa-inbox" style="font-size: 3rem; color: #555; margin-bottom: 20px;"></i>
+                                <h4 style="color: #ccc;">Nenhum contato encontrado</h4>
+                                <p style="color: #888;">Os contatos enviados através do formulário aparecerão aqui.</p>
+                                <a href="/" class="btn" style="background-color: #f22; color: #fff; border: none; padding: 10px 20px; border-radius: 5px;">
+                                    <i class="fas fa-plus me-2"></i>Adicionar Primeiro Contato
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="mt-4 text-center">
+                    <h4 style="color: #fff;">Contato Direto</h4>
+                    <p style="color: #ccc;">
+                        📞 WhatsApp: <a href="https://wa.me/244932998220" style="color:#0f0; text-decoration: none;">+244 932 998 220</a><br>
+                        📧 E-mail: <a href="mailto:thedragonvibes1@gmail.com" style="color:#0f0; text-decoration: none;">thedragonvibes1@gmail.com</a><br>
+                        🕒 Atendimento: 24h por dia
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

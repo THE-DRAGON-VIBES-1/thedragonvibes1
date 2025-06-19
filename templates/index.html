@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-bs-theme="dark">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Contato</title>
+    <title>THE.DRAGON.VIBES.1</title>
     <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div class="container mt-5">
+<body style="font-family: Arial; background-color: #111; color: #fff; padding: 30px;">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="card shadow-lg">
-                    <div class="card-header text-center py-4">
-                        <h1 class="h3 mb-0">
-                            <i class="fas fa-envelope me-2"></i>
-                            Entre em Contato
-                        </h1>
-                        <p class="text-muted mb-0">Preencha o formulário abaixo e entraremos em contato</p>
+            <div class="col-md-10 col-lg-8">
+                <!-- Header Section -->
+                <div class="text-center mb-4">
+                    <div class="logo-placeholder mb-3" style="width: 220px; height: 80px; background-color: #f22; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; margin: 0 auto; border-radius: 10px;">
+                        THE DRAGON VIBES 1
+                    </div>
+                    <h2 style="color: #f22;">Criando o conhecimento que dominará o mundo</h2>
+                    <hr style="border-color: #444;">
+                </div>
+
+                <div class="card shadow-lg" style="background-color: #222; border: none;">
+                    <div class="card-header text-center py-4" style="background-color: #333; border-bottom: 1px solid #444;">
+                        <h3 style="color: #fff; margin: 0;">Formulário de Contato</h3>
                     </div>
                     <div class="card-body p-4">
                         <!-- Flash Messages -->
@@ -37,16 +42,13 @@
                         <form method="POST" id="contactForm" novalidate>
                             <!-- Nome -->
                             <div class="mb-3">
-                                <label for="nome" class="form-label">
-                                    <i class="fas fa-user me-1"></i>
-                                    Nome Completo *
-                                </label>
+                                <label for="nome" class="form-label" style="color: #fff;">Nome completo:</label>
                                 <input type="text" 
                                        class="form-control" 
                                        id="nome" 
                                        name="nome" 
                                        value="{{ nome or '' }}"
-                                       placeholder="Digite seu nome completo"
+                                       style="background-color: #333; border: 1px solid #555; color: #fff;"
                                        required>
                                 <div class="invalid-feedback">
                                     Nome deve conter pelo menos 2 caracteres e apenas letras.
@@ -55,16 +57,13 @@
 
                             <!-- Email -->
                             <div class="mb-3">
-                                <label for="email" class="form-label">
-                                    <i class="fas fa-envelope me-1"></i>
-                                    Email *
-                                </label>
+                                <label for="email" class="form-label" style="color: #fff;">E-mail:</label>
                                 <input type="email" 
                                        class="form-control" 
                                        id="email" 
                                        name="email" 
                                        value="{{ email or '' }}"
-                                       placeholder="seu@email.com"
+                                       style="background-color: #333; border: 1px solid #555; color: #fff;"
                                        required>
                                 <div class="invalid-feedback">
                                     Digite um email válido.
@@ -73,61 +72,76 @@
 
                             <!-- Telefone -->
                             <div class="mb-3">
-                                <label for="telefone" class="form-label">
-                                    <i class="fas fa-phone me-1"></i>
-                                    Telefone *
-                                </label>
+                                <label for="telefone" class="form-label" style="color: #fff;">Telefone com DDD:</label>
                                 <input type="tel" 
                                        class="form-control" 
                                        id="telefone" 
                                        name="telefone" 
                                        value="{{ telefone or '' }}"
-                                       placeholder="(11) 99999-9999"
+                                       style="background-color: #333; border: 1px solid #555; color: #fff;"
                                        required>
                                 <div class="invalid-feedback">
-                                    Digite um telefone válido no formato brasileiro.
-                                </div>
-                                <div class="form-text">
-                                    Formato: (11) 99999-9999 ou 11 99999-9999
+                                    Digite um telefone válido.
                                 </div>
                             </div>
 
                             <!-- Interesse -->
                             <div class="mb-4">
-                                <label for="interesse" class="form-label">
-                                    <i class="fas fa-star me-1"></i>
-                                    Área de Interesse *
-                                </label>
-                                <select class="form-select" id="interesse" name="interesse" required>
+                                <label for="interesse" class="form-label" style="color: #fff;">Serviço de interesse:</label>
+                                <select class="form-select" id="interesse" name="interesse" style="background-color: #333; border: 1px solid #555; color: #fff;" required>
                                     <option value="">Selecione uma opção</option>
-                                    <option value="Vendas" {{ 'selected' if interesse == 'Vendas' else '' }}>Vendas</option>
-                                    <option value="Suporte Técnico" {{ 'selected' if interesse == 'Suporte Técnico' else '' }}>Suporte Técnico</option>
-                                    <option value="Parcerias" {{ 'selected' if interesse == 'Parcerias' else '' }}>Parcerias</option>
-                                    <option value="Recursos Humanos" {{ 'selected' if interesse == 'Recursos Humanos' else '' }}>Recursos Humanos</option>
-                                    <option value="Marketing" {{ 'selected' if interesse == 'Marketing' else '' }}>Marketing</option>
-                                    <option value="Financeiro" {{ 'selected' if interesse == 'Financeiro' else '' }}>Financeiro</option>
-                                    <option value="Outros" {{ 'selected' if interesse == 'Outros' else '' }}>Outros</option>
+                                    <option value="Curso de informática avançada" {{ 'selected' if interesse == 'Curso de informática avançada' else '' }}>Curso de informática avançada</option>
+                                    <option value="Curso de vendas digitais" {{ 'selected' if interesse == 'Curso de vendas digitais' else '' }}>Curso de vendas digitais</option>
+                                    <option value="Gestão de links patrocinados" {{ 'selected' if interesse == 'Gestão de links patrocinados' else '' }}>Gestão de links patrocinados</option>
+                                    <option value="Consultoria de marketing digital" {{ 'selected' if interesse == 'Consultoria de marketing digital' else '' }}>Consultoria de marketing digital</option>
                                 </select>
                                 <div class="invalid-feedback">
-                                    Por favor, selecione uma área de interesse.
+                                    Por favor, selecione um serviço de interesse.
                                 </div>
                             </div>
 
                             <!-- Submit Button -->
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    <i class="fas fa-paper-plane me-2"></i>
-                                    Enviar Contato
+                            <div class="mb-3">
+                                <button type="submit" class="btn" style="background-color: #f22; color: #fff; border: none; padding: 10px 20px; border-radius: 5px;">
+                                    Enviar
                                 </button>
                             </div>
                         </form>
                     </div>
-                    <div class="card-footer text-center text-muted">
-                        <small>
-                            <i class="fas fa-shield-alt me-1"></i>
-                            Seus dados estão seguros conosco
-                        </small>
-                    </div>
+                </div>
+
+                <!-- Company Information Section -->
+                <div class="mt-5">
+                    <hr style="border-color: #444;">
+                    <h3 style="color: #fff;">Sobre a empresa</h3>
+                    <p style="color: #ccc;">
+                        <strong>Nome:</strong> The Dragon Vibes 1<br>
+                        <strong>Fundação:</strong> 1º de janeiro de 2025<br>
+                        <strong>Fundador:</strong> Hélvio Gunza
+                    </p>
+
+                    <p style="color: #ccc;">A The Dragon Vibes 1 é uma empresa digital, especializada em cursos de informática avançada e serviços de marketing digital.</p>
+
+                    <h4 style="color: #fff;">Como funcionamos</h4>
+                    <ul style="color: #ccc;">
+                        <li>Atendimento personalizado e presencial</li>
+                        <li>Pagamento local e direto ao representante</li>
+                    </ul>
+
+                    <h4 style="color: #fff;">Diferenciais</h4>
+                    <ul style="color: #ccc;">
+                        <li>Equipe atualizada e especializada</li>
+                        <li>Soluções sob medida</li>
+                        <li>Suporte contínuo</li>
+                    </ul>
+
+                    <hr style="border-color: #444;">
+                    <h4 style="color: #fff;">Contato</h4>
+                    <p style="color: #ccc;">
+                        📞 WhatsApp: <a href="https://wa.me/244932998220" style="color:#0f0">+244 932 998 220</a><br>
+                        📧 E-mail: <a href="mailto:thedragonvibes1@gmail.com" style="color:#0f0">thedragonvibes1@gmail.com</a><br>
+                        🕒 Atendimento: 24h por dia
+                    </p>
                 </div>
             </div>
         </div>

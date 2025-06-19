@@ -1,53 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-bs-theme="dark">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obrigado - Formulário de Contato</title>
+    <title>THE.DRAGON.VIBES.1 - Obrigado</title>
     <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div class="container mt-5">
+<body style="font-family: Arial; background-color: #111; color: #fff; padding: 30px;">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-                <div class="card shadow-lg">
+                <!-- Header Section -->
+                <div class="text-center mb-4">
+                    <div class="logo-placeholder mb-3" style="width: 220px; height: 80px; background-color: #f22; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; margin: 0 auto; border-radius: 10px;">
+                        THE DRAGON VIBES 1
+                    </div>
+                    <h2 style="color: #f22;">Criando o conhecimento que dominará o mundo</h2>
+                    <hr style="border-color: #444;">
+                </div>
+
+                <div class="card shadow-lg" style="background-color: #222; border: none;">
                     <div class="card-body text-center p-5">
                         <div class="success-icon mb-4">
-                            <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                            <i class="fas fa-check-circle" style="font-size: 4rem; color: #0f0;"></i>
                         </div>
                         
-                        <h1 class="h2 mb-3">Obrigado!</h1>
+                        <h1 class="h2 mb-3" style="color: #fff;">Obrigado!</h1>
                         
-                        <p class="lead mb-4">
+                        <p class="lead mb-4" style="color: #ccc;">
                             Seu contato foi enviado com sucesso. Nossa equipe entrará em contato em breve.
                         </p>
                         
-                        <div class="alert alert-success border-0 mb-4">
+                        <div class="alert mb-4" style="background-color: #1a4d1a; border-left: 4px solid #0f0; color: #ccc;">
                             <i class="fas fa-info-circle me-2"></i>
                             <strong>Próximos passos:</strong><br>
-                            Você receberá uma confirmação por email e nosso time responderá em até 24 horas.
+                            Nossa equipe responderá em até 24 horas através do WhatsApp ou email fornecido.
                         </div>
                         
                         <div class="d-grid gap-2 d-md-block">
-                            <a href="/" class="btn btn-primary">
+                            <a href="/" class="btn" style="background-color: #f22; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; margin: 5px;">
                                 <i class="fas fa-arrow-left me-2"></i>
                                 Voltar ao Formulário
                             </a>
-                            <a href="/contatos" class="btn btn-outline-secondary">
+                            <a href="/contatos" class="btn" style="background-color: #333; color: #fff; border: 1px solid #555; padding: 10px 20px; border-radius: 5px; margin: 5px;">
                                 <i class="fas fa-list me-2"></i>
                                 Ver Contatos
                             </a>
                         </div>
                     </div>
-                    
-                    <div class="card-footer text-center text-muted">
-                        <small>
-                            <i class="fas fa-clock me-1"></i>
-                            Mensagem enviada em {{ moment().format('DD/MM/YYYY [às] HH:mm') }}
-                        </small>
-                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="mt-4 text-center">
+                    <h4 style="color: #fff;">Contato Direto</h4>
+                    <p style="color: #ccc;">
+                        📞 WhatsApp: <a href="https://wa.me/244932998220" style="color:#0f0; text-decoration: none;">+244 932 998 220</a><br>
+                        📧 E-mail: <a href="mailto:thedragonvibes1@gmail.com" style="color:#0f0; text-decoration: none;">thedragonvibes1@gmail.com</a><br>
+                        🕒 Atendimento: 24h por dia
+                    </p>
                 </div>
             </div>
         </div>
@@ -55,13 +67,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Auto-redirect after 10 seconds (optional)
+        // Auto-redirect after 15 seconds (optional)
         setTimeout(() => {
             const autoRedirect = confirm("Deseja voltar ao formulário automaticamente?");
             if (autoRedirect) {
                 window.location.href = "/";
             }
-        }, 10000);
+        }, 15000);
     </script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>THE.DRAGON.VIBES.1</title>
+</head>
+<body style="font-family: Arial; background-color: #111; color: #fff; padding: 30px;">
+  <img src="/static/logo.jpeg" alt="Logo" style="width: 220px;">
+  <h2 style="color: #f22;">Criando o conhecimento que dominará o mundo</h2>
+  <hr>
+  <h3>Formulário de Contato</h3>
+  <form method="POST">
+    <label>Nome completo:</label><br>
+    <input name="nome" required><br><br>
+
+    <label>E-mail:</label><br>
+    <input name="email" type="email" required><br><br>
+
+    <label>Telefone com DDD:</label><br>
+    <input name="telefone" required><br><br>
+
+    <label>Serviço de interesse:</label><br>
+    <select name="interesse" required>
+      <option>Curso de informática avançada</option>
+      <option>Curso de vendas digitais</option>
+      <option>Gestão de links patrocinados</option>
+      <option>Consultoria de marketing digital</option>
+    </select><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <hr>
+  <h3>Sobre a empresa</h3>
+  <p><strong>Nome:</strong> The Dragon Vibes 1<br>
+     <strong>Fundação:</strong> 1º de janeiro de 2025<br>
+     <strong>Fundador:</strong> Hélvio Gunza</p>
+
+  <p>A The Dragon Vibes 1 é uma empresa digital, especializada em cursos de informática avançada e serviços de marketing digital.</p>
+
+  <h4>Como funcionamos</h4>
+  <ul>
+    <li>Atendimento personalizado e presencial</li>
+    <li>Pagamento local e direto ao representante</li>
+  </ul>
+
+  <h4>Diferenciais</h4>
+  <ul>
+    <li>Equipe atualizada e especializada</li>
+    <li>Soluções sob medida</li>
+    <li>Suporte contínuo</li>
+  </ul>
+
+  <hr>
+  <h4>Contato</h4>
+  <p>📞 WhatsApp: <a href="https://wa.me/244932998220" style="color:#0f0">+244 932 998 220</a><br>
+     📧 E-mail: <a href="mailto:thedragonvibes1@gmail.com" style="color:#0f0">thedragonvibes1@gmail.com</a><br>
+     🕒 Atendimento: 24h por dia</p>
+</body>
+</html>
