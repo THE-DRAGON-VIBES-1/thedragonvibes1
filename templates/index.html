@@ -87,16 +87,39 @@
 
                             <!-- Interesse -->
                             <div class="mb-4">
-                                <label for="interesse" class="form-label" style="color: #fff;">Serviço de interesse:</label>
-                                <select class="form-select" id="interesse" name="interesse" style="background-color: #333; border: 1px solid #555; color: #fff;" required>
-                                    <option value="">Selecione uma opção</option>
-                                    <option value="Curso de informática avançada" {{ 'selected' if interesse == 'Curso de informática avançada' else '' }}>Curso de informática avançada</option>
-                                    <option value="Curso de vendas digitais" {{ 'selected' if interesse == 'Curso de vendas digitais' else '' }}>Curso de vendas digitais</option>
-                                    <option value="Gestão de links patrocinados" {{ 'selected' if interesse == 'Gestão de links patrocinados' else '' }}>Gestão de links patrocinados</option>
-                                    <option value="Consultoria de marketing digital" {{ 'selected' if interesse == 'Consultoria de marketing digital' else '' }}>Consultoria de marketing digital</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Por favor, selecione um serviço de interesse.
+                                <h3 style="color: #fff;">Quais serviços você deseja?</h3>
+                                <p style="color: #ccc;">Selecione todos os que forem do seu interesse:</p>
+                                
+                                <div class="form-check mb-2">
+                                    <input type="checkbox" class="form-check-input" name="interesse" value="Curso de informática avançada" id="check1" style="background-color: #333; border-color: #555;" {{ 'checked' if interesse_list and 'Curso de informática avançada' in interesse_list else '' }}>
+                                    <label class="form-check-label" for="check1" style="color: #fff;">
+                                        Curso de informática avançada
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check mb-2">
+                                    <input type="checkbox" class="form-check-input" name="interesse" value="Curso de vendas digitais e automação" id="check2" style="background-color: #333; border-color: #555;" {{ 'checked' if interesse_list and 'Curso de vendas digitais e automação' in interesse_list else '' }}>
+                                    <label class="form-check-label" for="check2" style="color: #fff;">
+                                        Curso de vendas digitais e automação
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check mb-2">
+                                    <input type="checkbox" class="form-check-input" name="interesse" value="Gestão de links patrocinados" id="check3" style="background-color: #333; border-color: #555;" {{ 'checked' if interesse_list and 'Gestão de links patrocinados' in interesse_list else '' }}>
+                                    <label class="form-check-label" for="check3" style="color: #fff;">
+                                        Gestão de links patrocinados (Google/Meta Ads)
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check mb-2">
+                                    <input type="checkbox" class="form-check-input" name="interesse" value="Consultoria de marketing digital" id="check4" style="background-color: #333; border-color: #555;" {{ 'checked' if interesse_list and 'Consultoria de marketing digital' in interesse_list else '' }}>
+                                    <label class="form-check-label" for="check4" style="color: #fff;">
+                                        Consultoria de marketing digital
+                                    </label>
+                                </div>
+                                
+                                <div class="invalid-feedback" id="interesse-error" style="display: none;">
+                                    Por favor, selecione pelo menos um serviço de interesse.
                                 </div>
                             </div>
 

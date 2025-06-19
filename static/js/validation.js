@@ -81,15 +81,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return isValid;
     }
     
-    function validateSelect(input) {
-        const isValid = input.value !== '';
+    function validateCheckboxes() {
+        const checkedBoxes = document.querySelectorAll('input[name="interesse"]:checked');
+        const errorDiv = document.getElementById('interesse-error');
+        const isValid = checkedBoxes.length > 0;
         
         if (isValid) {
-            input.classList.remove('is-invalid');
-            input.classList.add('is-valid');
+            errorDiv.style.display = 'none';
         } else {
-            input.classList.remove('is-valid');
-            input.classList.add('is-invalid');
+            errorDiv.style.display = 'block';
         }
         
         return isValid;
@@ -99,10 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const nomeInput = document.getElementById('nome');
     const emailInput = document.getElementById('email');
     const telefoneInput = document.getElementById('telefone');
-    const interesseSelect = document.getElementById('interesse');
+    const interesseCheckboxes = document.querySelectorAll('input[name="interesse"]');
     
     // Check if elements exist before adding listeners
-    if (!nomeInput || !emailInput || !telefoneInput || !interesseSelect) {
+    if (!nomeInput || !emailInput || !telefoneInput || interesseCheckboxes.length === 0) {
         return; // Exit if form elements not found
     }
     
@@ -142,9 +142,11 @@ document.addEventListener('DOMContentLoaded', function() {
         validatePhone(this);
     });
     
-    // Interest validation
-    interesseSelect.addEventListener('change', function() {
-        validateSelect(this);
+    // Interest validation (checkboxes)
+    interesseCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            validateCheckboxes();
+        });
     });
     
     // Form submission validation
@@ -164,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isFormValid = false;
         }
         
-        if (!validateSelect(interesseSelect)) {
+        if (!validateCheckboxes()) {
             isFormValid = false;
         }
         

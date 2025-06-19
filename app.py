@@ -39,7 +39,8 @@ def index():
         nome = request.form.get("nome", "").strip()
         email = request.form.get("email", "").strip()
         telefone = request.form.get("telefone", "").strip()
-        interesse = request.form.get("interesse", "").strip()
+        interesse_list = request.form.getlist("interesse")
+        interesse = ", ".join(interesse_list) if interesse_list else ""
         
         # Validation
         errors = []
@@ -53,8 +54,8 @@ def index():
         if not validar_telefone(telefone):
             errors.append("Telefone deve estar no formato brasileiro (ex: (11) 99999-9999).")
         
-        if not interesse:
-            errors.append("Por favor, selecione uma área de interesse.")
+        if not interesse_list:
+            errors.append("Por favor, selecione pelo menos um serviço de interesse.")
         
         # If there are validation errors, show them
         if errors:
@@ -64,7 +65,7 @@ def index():
                                  nome=nome, 
                                  email=email, 
                                  telefone=telefone, 
-                                 interesse=interesse)
+                                 interesse_list=interesse_list)
         
         # If validation passes, save to CSV
         try:
@@ -86,7 +87,7 @@ def index():
                                  nome=nome, 
                                  email=email, 
                                  telefone=telefone, 
-                                 interesse=interesse)
+                                 interesse_list=interesse_list)
     
     return render_template("index.html")
 
