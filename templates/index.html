@@ -79,11 +79,13 @@
                                        name="telefone" 
                                        value="{{ telefone or '' }}"
                                        style="background-color: #333; border: 1px solid #555; color: #fff;"
+                                       pattern="^\+?[\d\s\-\(\)]{7,}$"
+                                       placeholder="+244 932998220"
                                        required>
                                 <div class="invalid-feedback">
                                     Digite um telefone válido (formato internacional aceito).
                                 </div>
-                                <small style="color: gray;">Ex: +244 932 998 220</small>
+                                <small style="color: gray;">Digite com código do país. Ex: +244 932998220</small>
                             </div>
 
                             <!-- Interesse -->
