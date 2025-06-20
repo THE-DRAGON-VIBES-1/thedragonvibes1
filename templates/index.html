@@ -71,21 +71,16 @@
                             </div>
 
                             <!-- Telefone -->
-                            <div class="mb-3">
-                                <label for="telefone" class="form-label" style="color: #fff;">Telefone com DDD:</label>
-                                <input type="tel" 
-                                       class="form-control" 
-                                       id="telefone" 
-                                       name="telefone" 
-                                       value="{{ telefone or '' }}"
-                                       style="background-color: #333; border: 1px solid #555; color: #fff;"
-                                       pattern="^\+?[\d\s\-\(\)]{7,}$"
-                                       placeholder="+244 932998220"
-                                       required>
-                                <div class="invalid-feedback">
-                                    Digite um telefone válido (formato internacional aceito).
-                                </div>
-                                <small style="color: gray;">Digite com código do país. Ex: +244 932998220</small>
+                            <input name="telefone" type="tel" required 
+                                   pattern="^\+?[0-9\s\-\(\)]{8,20}$" 
+                                   placeholder="+244 932998220"
+                                   style="background-color: #333; border: 1px solid #555; color: #fff;">
+                            <small style="color: gray;">Inclua o código do país. Ex: +244 999999999</small>
+                            <div class="invalid-feedback">
+                                Digite um telefone válido (formato internacional aceito).
+                            </div>
+
+                                <small style="color: gray;">Digite com código do país. Ex: +244 999999999</small>
                             </div>
 
                             <!-- Interesse -->
