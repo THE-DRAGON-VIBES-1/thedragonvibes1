@@ -97,18 +97,17 @@ def obrigado():
     return render_template("obrigado.html")
 
 @app.route("/contatos")
-def listar_contatos():
-    """Admin route to view all contacts (for testing purposes)"""
+def exibir_contatos():
+    contatos = []
     try:
-        contatos = []
         if os.path.exists("contatos.csv"):
             with open("contatos.csv", "r", encoding="utf-8") as f:
                 reader = csv.reader(f)
                 contatos = list(reader)
         return render_template("contatos.html", contatos=contatos)
     except Exception as e:
-        app.logger.error(f"Error reading contacts: {str(e)}")
+        app.logger.error(f"Erro ao ler contatos: {str(e)}")
         return f"Erro ao ler contatos: {str(e)}", 500
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+@app.route("/saude")
+def saude():
+    return "OK", 200
